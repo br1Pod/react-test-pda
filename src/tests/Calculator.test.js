@@ -93,6 +93,25 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual('3');
   })
 
+  // calculator.numberClick() - concatenate multiple number button clicks
+  it('should concatenate 2, 1, 7, & 8 and return 2178', () => {
+    const btn2 = container.find('#number2');
+    btn2.simulate('click');
+
+    const btn1 = container.find('#number1');
+    btn1.simulate('click');
+
+    const bt7 = container.find('#number7');
+    bt7.simulate('click');
+
+    const bt8 = container.find('#number8');
+    bt8.simulate('click');
+
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('2178');
+  })
+
+  
 })
 
 
