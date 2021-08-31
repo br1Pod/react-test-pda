@@ -136,7 +136,25 @@ describe('Calculator', () => {
     const runningTotal = container.find('#running-total');
     expect(runningTotal.text()).toEqual('15');
   })
-  
+
+  // calculator.clearClick() - clear the running total without affecting the calculation
+  it('should multiply 2 x 3, then clear, and return 0', () => {
+    const btn2 = container.find('#number2');
+    btn2.simulate('click');
+
+    const btnMultiply = container.find('#operator-multiply');
+    btnMultiply.simulate('click');
+
+    const btn3 = container.find('#number3');
+    btn3.simulate('click');
+
+    const clear = container.find('#clear')
+    clear.simulate('click');
+
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('0');
+  })
+
 })
 
 
