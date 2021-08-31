@@ -111,6 +111,31 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual('2178');
   })
 
+  // calculator.operatorClick() - chain multiple operations together
+  it('should multiply 7 by 3, then subtract 6, and return 15', () => {
+    const btn7 = container.find('#number7');
+    btn7.simulate('click');
+
+    const btnMultiply = container.find('#operator-multiply');
+    btnMultiply.simulate('click');
+
+    const btn3 = container.find('#number3');
+    btn3.simulate('click');
+
+    const equals = container.find('#operator-equals');
+    equals.simulate('click');
+
+    const btnSubtract = container.find('#operator-subtract');
+    btnSubtract.simulate('click');
+
+    const btn6 = container.find('#number6');
+    btn6.simulate('click');
+
+    equals.simulate('click');
+
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('15');
+  })
   
 })
 
