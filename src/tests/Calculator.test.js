@@ -2,7 +2,7 @@ import React from 'react';
 import Calculator from '../containers/Calculator';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { eq } from 'cypress/types/lodash';
+
 
 configure({adapter: new Adapter()});
 
