@@ -55,6 +55,9 @@ describe('Calculator', () => {
 
     expect(runningTotal.text()).toEqual('3');
   })
+
+  // calculator.multiply() - multiply 3 by 5 and get 15
+
 })
 
 
