@@ -22,13 +22,18 @@ describe('Calculator', () => {
   it('should return correct answer for addition', () => {
     const button1 = container.find('#number1');
     button1.simulate('click');
-    const addition = container.find('operator_add');
+
+    const addition = container.find('#operator_add');
     addition.simulate('click')
+
     const button4 = container.find('#number4');
     button4.simulate('click');
-    const equals = container.find('operator-equals');
+
+    const equals = container.find('#operator-equals');
     equals.simulate('click');
+
     const runningTotal = container.find('#running-total')
+
     expect(runningTotal.text()).toEqual('5');
   })
 })
