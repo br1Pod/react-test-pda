@@ -24,7 +24,7 @@ describe('Calculator', () => {
     button1.simulate('click');
 
     const addition = container.find('#operator_add');
-    addition.simulate('click')
+    addition.simulate('click');
 
     const button4 = container.find('#number4');
     button4.simulate('click');
@@ -32,9 +32,28 @@ describe('Calculator', () => {
     const equals = container.find('#operator-equals');
     equals.simulate('click');
 
-    const runningTotal = container.find('#running-total')
+    const runningTotal = container.find('#running-total');
 
     expect(runningTotal.text()).toEqual('5');
+  })
+
+  // calculator.subtract() subtract 4 from 7 and get 3
+  it('should subtract 7 - 4 and return 3', () => {
+    const button7 = container.find('#number7');
+    button7.simulate('click');
+
+    const subtraction = container.find('#operator-subtract');
+    subtraction.simulate('click');
+
+    const button4 = container.find('#number4');
+    button4.simulate('click');
+
+    const equals = container.find('#operator-equals');
+    equals.simulate('click');
+
+    const runningTotal = container.find('#running-total');
+
+    expect(runningTotal.text()).toEqual('3');
   })
 })
 
