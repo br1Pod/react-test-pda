@@ -32,7 +32,38 @@ describe("Calculator", () => {
   })
   
   // Can multiple operations be chained together?
+  it('multiple operations chain together', () => {
+    cy.get('#number5').click();
+    cy.get('#operator-multiply').click();
+    cy.get('#number6').click();
+    cy.get('#operator-equals').click();
+    cy.get('#operator_add').click();
+    cy.get('#number2').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','32')
+  })
+
   // Is the output as expected for a range of numbers?
+  it('test different numbers', () => {
+    cy.get('#number4').click();
+    cy.get('#operator-divide').click();
+    cy.get('#number8').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','0.5')
+
+    cy.get('#operator-subtract').click();
+    cy.get('#number1').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','-0.5')
+
+    cy.get('#operator-multiply').click();
+    cy.get('#number9').click();
+    cy.get('#number8').click();
+    cy.get('#number6').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','-493')
+  })
+
   // Does divide by 0 return 0?
 
 
