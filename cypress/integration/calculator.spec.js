@@ -18,6 +18,16 @@ describe("Calculator", () => {
   })
 
   // Do the arithmetical operations update the display with the result of the operation?
+  it('multiple operators combines together to work', () => {
+    cy.get('#number5').click();
+    cy.get('#operator-multiply').click();
+    cy.get('#number6').click();
+    cy.get('#operator-equals').click();
+    cy.get('#operator_add').click();
+    cy.get('#number2').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','32')
+  })
   
   // Can multiple operations be chained together?
   // Is the output as expected for a range of numbers?
