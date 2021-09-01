@@ -65,9 +65,15 @@ describe("Calculator", () => {
   })
 
   // Does divide by 0 return 0?
-
-
-
-
+  it('8 divided by 0 should error', () => {
+    cy.get('#number8').click();
+    cy.get('#operator-divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','Undefined')
+  })
+  //    unmodified, calculator displays infinity, not 0
+  //    result should be 'undefined'
+  //    changed calculator.js to return 'undefined' if you divide by zero
 
 })
