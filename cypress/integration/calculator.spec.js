@@ -9,7 +9,8 @@ describe("Calculator", () => {
   })
 
   // Do the number buttons update the display of the running total?
-  it('running total should display result of a sum', () => {
+ 
+  it('running total should display current result', () => {
     cy.get('#number4').click();
     cy.get('#operator-multiply').click();
     cy.get('#number5').click();
@@ -17,16 +18,17 @@ describe("Calculator", () => {
     cy.get('.display').should('contain','20')
   })
 
-  // Do the arithmetical operations update the display with the result of the operation?
-  it('multiple operators combines together to work', () => {
-    cy.get('#number5').click();
+   // Do the arithmetical operations update the display with the result of the operation?
+   it('operations should display current result', () => {
+    cy.get('#number4').click();
     cy.get('#operator-multiply').click();
-    cy.get('#number6').click();
+    cy.get('#number5').click();
     cy.get('#operator-equals').click();
+    cy.get('.display').should('contain','20')
     cy.get('#operator_add').click();
     cy.get('#number2').click();
     cy.get('#operator-equals').click();
-    cy.get('.display').should('contain','32')
+    cy.get('.display').should('contain','22')
   })
   
   // Can multiple operations be chained together?
